@@ -4,31 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#333"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/calculatorBtn"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="@string/Calculator"
         android:textSize="20sp"
         android:background="@color/purple_200"
         android:textColor="#000"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="250sp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="250sp" />
 
     <Button
         android:id="@+id/horoscopeBtn"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:textSize="20sp"
         android:background="@color/purple_200"
         android:textColor="#000"
         android:text="@string/Horoscope"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calculatorBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="10dp"
         app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/welcomeMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:text="@string/welcomeMessage"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="150dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

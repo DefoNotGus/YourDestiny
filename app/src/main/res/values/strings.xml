@@ -3,4 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="Calculator">Calculator</string>
     <string name="Horoscope">Horoscope</string>
+    <string name="BdayDate">(DD/MM)</string>
+    <string name="questiondate">When where you born? (DD/MM)</string>
+    <string name="calculate">Calculate</string>
+    <string name="calculatedResult">Here you can find out your zodiac sign</string>
+    <string name="welcomeMessage">Hello, Welcome to <b>YourDestiny.</b>My University project</string>
 </resources>
