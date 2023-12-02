@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="btntext">#eeeeee</color>
     <color name="bgbtn">#313f33</color>
+    <color name="bgcard">#303234</color>
     <color name="bg">#212121</color>
 </resources>

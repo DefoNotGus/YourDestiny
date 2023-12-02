@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_horoscopeFragment_to_calculatorFragment"
             app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_horoscopeFragment_to_horoscopeDetails"
+            app:destination="@id/horoscopeDetails" />
     </fragment>
     <fragment
         android:id="@+id/calculatorFragment"
@@ -41,4 +44,9 @@
             android:id="@+id/action_calculatorFragment_to_horoscopeFragment"
             app:destination="@id/horoscopeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/horoscopeDetails"
+        android:name="com.example.yourdestiny.HoroscopeDetails"
+        android:label="fragment_horoscope_details"
+        tools:layout="@layout/fragment_horoscope_details" />
 </navigation>
