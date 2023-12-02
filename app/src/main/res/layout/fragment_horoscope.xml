@@ -28,13 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
         android:scrollbars="vertical"/>
-    <TextView
-        android:id="@+id/horoscopeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Home"
-        android:textSize="18sp"
-        android:textColor="@color/btntext"/>
+
     <LinearLayout
 
         android:id="@+id/linearlayoutHoroPage"

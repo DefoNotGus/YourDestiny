@@ -64,4 +64,15 @@
         android:text="@string/welcomeMessage"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="150dp"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/yourdestiny">
+    </ImageView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,9 +6,19 @@
     tools:context=".HoroscopeDetails">
 
     <TextView
+        android:id="@+id/horoscopeText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/welcomeMessage"
+        android:text=""
         android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/detailBackbtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/save"
+        android:backgroundTint="@color/teal_700"
+        android:layout_alignParentBottom="true"/>
+
 
 </RelativeLayout>

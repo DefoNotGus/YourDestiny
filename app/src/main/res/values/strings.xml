@@ -10,4 +10,5 @@
     <string name="welcomeMessage">Hello, Welcome to <b>YourDestiny.</b>My University project</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Home">Memories</string>
+    <string name="save">Save</string>
 </resources>

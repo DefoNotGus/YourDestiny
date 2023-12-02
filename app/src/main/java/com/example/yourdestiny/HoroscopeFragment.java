@@ -30,9 +30,9 @@ import java.util.List;
 public class HoroscopeFragment extends Fragment {
 
     private final List<HoroscopeData> horoscopeDataList = new ArrayList<>();
-    private TextView horoscopeTextView;
-    private RequestQueue requestQueue;
     private View view;
+    private RecyclerView recyclerView;  // Added RecyclerView field
+    private ImageView imageView;  // Added ImageView field
 
     public HoroscopeFragment() {
         // Required empty public constructor
@@ -42,7 +42,13 @@ public class HoroscopeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_horoscope, container, false);
+        view = inflater.inflate(R.layout.fragment_horoscope, container, false);
+
+        // Initialize views
+        recyclerView = view.findViewById(R.id.recycler_view);  // Initialize RecyclerView
+        imageView = view.findViewById(R.id.imageView);  // Initialize ImageView
+
+        return view;
 
     }
 
@@ -52,16 +58,6 @@ public class HoroscopeFragment extends Fragment {
         this.view = view;
         prepareHoroscopeData();
 
-
-
-        // Initialize views
-        horoscopeTextView = view.findViewById(R.id.horoscopeTextView);
-
-        // Initialize Volley request queue
-        requestQueue = Volley.newRequestQueue(requireContext());
-
-        // Make API call
-        fetchHoroscopeData();
 
         // reference the buttons from layout
         Button calculatorBtnH = view.findViewById(R.id.calculatorBtnH);
@@ -78,47 +74,67 @@ public class HoroscopeFragment extends Fragment {
         });
 
     }
-    private void prepareHoroscopeData() {
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        ImageView imageView = view.findViewById(R.id.imageView);
+    @Override
+    public void onPause() {
+        super.onPause();
+        deleteAllItems();
+    }
 
+    private void deleteAllItems() {
+        // Clear the horoscopeDataList
+        horoscopeDataList.clear();
+
+        // Notify the adapter that the data set has changed
+        if (recyclerView.getAdapter() != null) {
+            recyclerView.getAdapter().notifyDataSetChanged();
+        }
+    }
+    private void prepareHoroscopeData() {
         HoroscopeAdapter horoscopeAdapter = new HoroscopeAdapter(requireContext(), horoscopeDataList);
         RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity().getApplicationContext(), 2);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(horoscopeAdapter);
 
 
-        HoroscopeData horoscopeData = new HoroscopeData("ARIES", "aries69", imageView);
-        horoscopeDataList.add(horoscopeData);
+
+        HoroscopeData horoscopeData1 = new HoroscopeData("ARIES", "aries69", imageView);
+        horoscopeDataList.add(horoscopeData1);
+
+        HoroscopeData horoscopeData2 = new HoroscopeData("TAURUS", "taurus69", imageView);
+        horoscopeDataList.add(horoscopeData2);
+
+        HoroscopeData horoscopeData3 = new HoroscopeData("GEMINI", "gemini69", imageView);
+        horoscopeDataList.add(horoscopeData3);
+
+        HoroscopeData horoscopeData4 = new HoroscopeData("CANCER", "cancer69", imageView);
+        horoscopeDataList.add(horoscopeData4);
+
+        HoroscopeData horoscopeData5 = new HoroscopeData("LEO", "leo69", imageView);
+        horoscopeDataList.add(horoscopeData5);
+
+        HoroscopeData horoscopeData6 = new HoroscopeData("VIRGO", "virgo69", imageView);
+        horoscopeDataList.add(horoscopeData6);
+
+        HoroscopeData horoscopeData7 = new HoroscopeData("LIBRA", "libra69", imageView);
+        horoscopeDataList.add(horoscopeData7);
+
+        HoroscopeData horoscopeData8 = new HoroscopeData("SCORPIO", "scorpio69", imageView);
+        horoscopeDataList.add(horoscopeData8);
+
+        HoroscopeData horoscopeData9 = new HoroscopeData("SAGITTARIUS", "sagittarius69", imageView);
+        horoscopeDataList.add(horoscopeData9);
+
+        HoroscopeData horoscopeData10 = new HoroscopeData("CAPRICORN", "capricorn69", imageView);
+        horoscopeDataList.add(horoscopeData10);
+
+        HoroscopeData horoscopeData11 = new HoroscopeData("AQUARIUS", "aquarius69", imageView);
+        horoscopeDataList.add(horoscopeData11);
+
+        HoroscopeData horoscopeData12 = new HoroscopeData("PISCES", "pisces69", imageView);
+        horoscopeDataList.add(horoscopeData12);
+
     }
-    public void fetchHoroscopeData() {
-        String apiUrl = "https://dog.ceo/api/breeds/image/random";
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiUrl, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            // Parse the JSON response
-                            String imageUrl = response.getString("message");
-
-                            // Display the URL in TextView
-                            horoscopeTextView.setText(imageUrl);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Handle error
-                    }
-                });
-
-        // Add the request to the RequestQueue
-        requestQueue.add(request);
-    }
 
 
 }
