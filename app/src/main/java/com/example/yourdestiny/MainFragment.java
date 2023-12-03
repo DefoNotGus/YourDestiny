@@ -6,13 +6,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainFragment extends Fragment {
+
+    private TextView welcomeMsg;
+    private ImageView logo;
+    private Handler longPressHandler;
+    private boolean isLongPress = false;
+    private static final int LONG_PRESS_DURATION = 5000; // 5 seconds
 
     public MainFragment() {
         // Required empty public constructor
@@ -22,7 +34,51 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        welcomeMsg = view.findViewById(R.id.welcomeMsg);
+        logo = view.findViewById(R.id.logo);
+
+        // Initialize YourAppDatabase
+        HoroscopeDatabase horoscopeDatabase = new HoroscopeDatabase(requireContext());
+        horoscopeDatabase.open();
+
+        // Get the last record and set it to the TextView
+        String lastRecord = horoscopeDatabase.getLastRecord();
+        if (lastRecord != null) {
+            welcomeMsg.setText(lastRecord);
+        }
+
+        // Close the database when done
+        horoscopeDatabase.close();
+
+        // Set up long-press detection on the logo ImageView
+        longPressHandler = new Handler();
+        logo.setOnLongClickListener(v -> {
+            isLongPress = true;
+            longPressHandler.postDelayed(longPressRunnable, LONG_PRESS_DURATION);
+            return true;
+        });
+
+        logo.setOnClickListener(v -> {
+            // Handle regular click event
+            if (isLongPress) {
+                // If it was a long press, isLongPress will be true
+                isLongPress = false; // Reset the flag
+                longPressHandler.removeCallbacks(longPressRunnable); // Remove the callback
+                // Initialize the database and delete all records
+                horoscopeDatabase.open();
+                horoscopeDatabase.deleteAllRecords();
+                horoscopeDatabase.close();
+                welcomeMsg.setText("");
+                // Update the UI or perform any other actions after deleting records
+                // For example, you can display a message or refresh the fragment
+            } else {
+                // Handle regular click event
+                // Add your regular click logic here
+            }
+        });
+
+        return view;
     }
 
     @Override
@@ -43,4 +99,7 @@ public class MainFragment extends Fragment {
 
         });
     }
+    private final Runnable longPressRunnable = () -> {
+        isLongPress = false; // Reset the flag
+    };
 }

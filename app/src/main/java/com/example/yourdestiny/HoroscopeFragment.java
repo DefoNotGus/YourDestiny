@@ -1,5 +1,6 @@
 package com.example.yourdestiny;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -89,6 +90,7 @@ public class HoroscopeFragment extends Fragment {
             recyclerView.getAdapter().notifyDataSetChanged();
         }
     }
+
     private void prepareHoroscopeData() {
         HoroscopeAdapter horoscopeAdapter = new HoroscopeAdapter(requireContext(), horoscopeDataList);
         RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity().getApplicationContext(), 2);

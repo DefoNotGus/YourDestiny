@@ -30,6 +30,7 @@ public class HoroscopeDetails extends Fragment {
 
     TextView textView;
     private View view;
+    private Button detailBackbtn;
 
     private RequestQueue requestQueue;
 
@@ -49,7 +50,24 @@ public class HoroscopeDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_horoscope_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_horoscope_details, container, false);
+        textView = view.findViewById(R.id.horoscopeText);
+        detailBackbtn = view.findViewById(R.id.detailBackbtn);
+
+        detailBackbtn.setOnClickListener(v -> {
+            // Get the text from horoscopeText
+            String horoscopeDetails = textView.getText().toString();
+
+            // Insert the text into the database
+            HoroscopeDatabase appDatabase = new HoroscopeDatabase(requireContext());
+            appDatabase.open();
+            appDatabase.insertData(horoscopeDetails);
+            appDatabase.close();
+
+            // Destroy the current fragment
+            requireActivity().getSupportFragmentManager().popBackStack();
+        });
+        return view;
 
     }
 
@@ -57,17 +75,11 @@ public class HoroscopeDetails extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        textView = view.findViewById(R.id.horoscopeText);
         // Initialize Volley request queue
         requestQueue = Volley.newRequestQueue(requireContext());
         String zodiacName = requireArguments().getString("zodiacName");
         populateHoroscope(zodiacName);
 
-        Button detailBackbtn = view.findViewById(R.id.detailBackbtn);
-        // Set OnClickListener using lambda expression
-        detailBackbtn.setOnClickListener(v -> {
-            Navigation.findNavController(view).navigate(R.id.action_horoscopeDetails_to_mainFragment);
-        });
     }
 
     public void populateHoroscope(String zodiacName) {
