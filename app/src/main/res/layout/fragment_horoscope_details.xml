@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bgdetail"
     tools:context=".HoroscopeDetails">
 
     <TextView
         android:id="@+id/horoscopeText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:textAlignment="center"
         android:text=""
         android:textColor="@color/black"/>
 

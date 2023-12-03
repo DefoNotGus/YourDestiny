@@ -11,4 +11,5 @@
     <color name="bgbtn">#313f33</color>
     <color name="bgcard">#222121</color>
     <color name="bg">#212121</color>
+    <color name="bgdetail">#dddddd</color>
 </resources>

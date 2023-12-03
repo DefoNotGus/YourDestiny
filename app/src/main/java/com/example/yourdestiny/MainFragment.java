@@ -24,7 +24,7 @@ public class MainFragment extends Fragment {
     private ImageView logo;
     private Handler longPressHandler;
     private boolean isLongPress = false;
-    private static final int LONG_PRESS_DURATION = 5000; // 5 seconds
+    private static final int LONG_PRESS_DURATION = 3000; // 5 seconds
 
     public MainFragment() {
         // Required empty public constructor
@@ -69,9 +69,9 @@ public class MainFragment extends Fragment {
                 horoscopeDatabase.open();
                 horoscopeDatabase.deleteAllRecords();
                 horoscopeDatabase.close();
-                welcomeMsg.setText("");
-                // Update the UI or perform any other actions after deleting records
-                // For example, you can display a message or refresh the fragment
+
+                //Display Instructions
+                welcomeMsg.setText(R.string.tutorial);
             } else {
                 // Handle regular click event
                 // Add your regular click logic here

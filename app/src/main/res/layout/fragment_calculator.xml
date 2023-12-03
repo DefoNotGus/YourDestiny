@@ -63,51 +63,56 @@
         android:textAlignment="center"
         android:text="@string/calculatedResult"/>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
 
         android:id="@+id/linearlayoutCalPage"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/bgcard"
         android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/calculatorBtnC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:alpha="0.3"
             android:backgroundTint="@color/bgbtn"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
             android:text="@string/Calculator"
             android:textColor="@color/btntext"
-            android:gravity="top"
-            android:alpha="0.3"
-            android:fontFamily="sans-serif-black"
-            android:layout_margin="2dp"
-            android:textSize="15sp" />
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/horoscopeBtnC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/bgbtn"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
             android:text="@string/Horoscope"
             android:textColor="@color/btntext"
-            android:gravity="top"
-            android:fontFamily="sans-serif-black"
-            android:layout_margin="2dp"
-            android:textSize="15sp" />
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/homeBtnC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
             android:backgroundTint="@color/bgbtn"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
             android:text="@string/Home"
             android:textColor="@color/btntext"
-            android:gravity="top"
-            android:fontFamily="sans-serif-black"
-            android:layout_margin="2dp"
-            android:textSize="15sp" />
+            android:textSize="10sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

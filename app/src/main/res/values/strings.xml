@@ -7,8 +7,11 @@
     <string name="questiondate">When where you born? (DD/MM)</string>
     <string name="calculate">Calculate</string>
     <string name="calculatedResult">Here you can find out your zodiac sign</string>
-    <string name="welcomeMessage">Hello, Welcome to <b>YourDestiny.</b>My University project</string>
+    <string name="welcomeMessage">Hello, Welcome to <b>YourDestiny.</b>My University project\n\n Hold the logo until vibration and then tap it.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Home">Memories</string>
     <string name="save">Save</string>
+    <string name="tutorial">Tutorial:\n\n Calculator: Insert Your date of birth on DD/MM format to find out your zodiac Sign\n
+                        Horoscope: Choose on your zodiac sign icon to find your daily Horoscope.\n
+                        Memories: Here you can see your last saved Horoscope for easy access.\n To see this tutorial again simply hold the logo for 3 seconds \n\n Thanks for using my app!</string>
 </resources>
