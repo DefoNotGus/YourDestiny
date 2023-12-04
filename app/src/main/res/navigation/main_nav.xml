@@ -48,9 +48,5 @@
         android:id="@+id/horoscopeDetails"
         android:name="com.example.yourdestiny.HoroscopeDetails"
         android:label="fragment_horoscope_details"
-        tools:layout="@layout/fragment_horoscope_details" >
-        <action
-            android:id="@+id/action_horoscopeDetails_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_horoscope_details" />
 </navigation>

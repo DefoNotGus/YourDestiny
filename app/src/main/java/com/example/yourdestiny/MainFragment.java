@@ -89,11 +89,11 @@ public class MainFragment extends Fragment {
         Button calculatorBtn = view.findViewById(R.id.calculatorBtn);
         Button horoscopeBtn = view.findViewById(R.id.horoscopeBtn);
 
-        // Set OnClickListener using lambda expression
+        // Set OnClickListener using lambda expression for navigation
         horoscopeBtn.setOnClickListener(v -> {
             Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_horoscopeFragment);
         });
-        // Set OnClickListener using lambda expression
+        // Set OnClickListener using lambda expression for navigation
         calculatorBtn.setOnClickListener(v -> {
             Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_calculatorFragment);
 
