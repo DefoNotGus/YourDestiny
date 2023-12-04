@@ -1,3 +1,4 @@
+# README
 To open the app please clone it from the master branch :)
 # Overview
 * __Gustavo Rangel__
